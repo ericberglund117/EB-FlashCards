@@ -26,7 +26,11 @@ describe('Turn', function() {
   });
 
   it('should store a card', function() {
-    const card = new Card(1, 'Who is the Worlds Best Boss?', ['Jim', 'Dwight', 'Jan'], 'Michael');
+    const card = new Card(
+      1,
+      'Who is the Worlds Best Boss?',
+      ['Jim', 'Dwight', 'Jan'],
+      'Michael');
     const turn = new Turn('Michael', card);
     expect(turn.card).to.deep.equal({
       id: 1,
@@ -36,16 +40,24 @@ describe('Turn', function() {
     });
   });
 
-  it.skip('should be able to return the guess', function() {
-    const card = new Card(1, 'Who is the Worlds Best Boss?', ['Jim', 'Dwight', 'Jan'], 'Michael');
+  it('should be able to return the guess', function() {
+    const card = new Card(
+      1,
+      'Who is the Worlds Best Boss?',
+      ['Jim', 'Dwight', 'Jan'],
+      'Michael');
     const turn = new Turn('Michael', card);
     const makeAGuess = turn.returnGuess();
 
     expect(makeAGuess).to.equal('Michael');
   });
 
-  it.skip('should be able to return the card', function() {
-    const card = new Card(1, 'Who is the Worlds Best Boss?', ['Jim', 'Dwight', 'Jan'], 'Michael');
+  it('should be able to return the card', function() {
+    const card = new Card(
+      1,
+      'Who is the Worlds Best Boss?',
+      ['Jim', 'Dwight', 'Jan'],
+      'Michael');
     const turn = new Turn('Michael', card);
     const seeTheCard = turn.returnCard();
 
@@ -57,35 +69,51 @@ describe('Turn', function() {
     });
   });
 
-  it.skip('should return true if the guess is correct', function() {
-    const card = new Card(1, 'Who is the Worlds Best Boss?', ['Jim', 'Dwight', 'Jan'], 'Michael');
+  it('should return true if the guess is correct', function() {
+    const card = new Card(
+      1,
+      'Who is the Worlds Best Boss?',
+      ['Jim', 'Dwight', 'Jan'],
+      'Michael');
     const turn = new Turn('Michael', card);
     const isItTrue = turn.evaluateGuess();
 
     expect(isItTrue).to.equal(true);
   });
 
-  it.skip('should return false if the guess is incorrect', function() {
-    const card = new Card(1, 'Who is the Worlds Best Boss?', ['Jim', 'Dwight', 'Jan'], 'Michael');
+  it('should return false if the guess is incorrect', function() {
+    const card = new Card(
+      1,
+      'Who is the Worlds Best Boss?',
+      ['Jim', 'Dwight', 'Jan'],
+      'Michael');
     const turn = new Turn('Jan', card);
     const isItTrue = turn.evaluateGuess();
 
     expect(isItTrue).to.equal(false);
   });
 
-  it.skip('should tell you if your guess is correct', function() {
-    const card = new Card(1, 'Who is the Worlds Best Boss?', ['Jim', 'Dwight', 'Jan'], 'Michael');
+  it('should tell you if your guess is correct', function() {
+    const card = new Card(
+      1,
+      'Who is the Worlds Best Boss?',
+      ['Jim', 'Dwight', 'Jan'],
+      'Michael');
     const turn = new Turn('Michael', card);
-    const howDidIDo = turn.giveFeedback();
+    const amIRight = turn.giveFeedback();
 
-    expect(howDidIDo).to.equal('correct!');
+    expect(amIRight).to.equal('correct!');
   });
 
-  it.skip('should tell you if your guess is incorrect', function() {
-    const card = new Card(1, 'Who is the Worlds Best Boss?', ['Jim', 'Dwight', 'Jan'], 'Michael');
+  it('should tell you if your guess is incorrect', function() {
+    const card = new Card(
+      1,
+      'Who is the Worlds Best Boss?',
+      ['Jim', 'Dwight', 'Jan'],
+      'Michael');
     const turn = new Turn('Dwight', card);
-    const howDidIDo = turn.giveFeedback();
+    const amIRight = turn.giveFeedback();
 
-    expect(howDidIDo).to.equal('incorrect!');
+    expect(amIRight).to.equal('incorrect!');
   });
 });

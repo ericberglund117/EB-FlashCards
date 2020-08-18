@@ -5,8 +5,14 @@ class Turn {
     this.guess = guess;
     this.card = card;
   }
+
+  returnGuess = () => this.guess;
+
+  returnCard = () => this.card;
+
+  evaluateGuess = () => this.guess === this.card.correctAnswer;
+
+  giveFeedback = () => this.evaluateGuess() ? 'correct!' : 'incorrect!';
 };
-
-
 
 module.exports = Turn;
