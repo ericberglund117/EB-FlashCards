@@ -46,5 +46,85 @@ describe('Round', function() {
 
     expect(round.returnCurrentCard()).to.equal(card1);
   });
-  
+
+  it('should be able to return the currentCard', () => {
+   const deck = new Deck([card1, card2, card3]);
+   const round = new Round(deck);
+   const showCurrentCard = round.returnCurrentCard();
+
+   expect(showCurrentCard).to.deep.equal({
+     id: 1,
+     question: 'What is Robbie\'s favorite animal',
+     answers: ['sea otter', 'pug', 'capybara'],
+     correctAnswer: 'sea otter'
+   });
+ });
+
+ it('should instantiate a new turn when a guess is made', () => {
+   const deck = new Deck([card1, card2, card3]);
+   const round = new Round(deck);
+
+   round.takeTurn('sea otter');
+
+   expect(round.currentTurn).to.be.an.instanceof(Turn);
+ });
+
+ it('should be able to keep track of how many turns have been taken', () => {
+   const deck = new Deck([card1, card2, card3]);
+   const round = new Round(deck);
+
+   round.takeTurn('sea otter');
+
+   expect(round.turns).to.equal(1);
+
+   round.takeTurn('gallbladder');
+
+   expect(round.turns).to.equal(2);
+ });
+
+ it('should make the next card the currentcard when a turn is taken', () => {
+   const deck = new Deck([card1, card2, card3]);
+   const round = new Round(deck);
+
+   round.takeTurn('sea otter');
+
+   expect(round.returnCurrentCard()).to.equal(card2);
+ });
+
+ it('should be able to evaluate guesses', () => {
+   const deck = new Deck([card1, card2, card3]);
+   const round = new Round(deck);
+
+   let makeAGuess = round.takeTurn('sea otter');
+
+   expect(makeAGuess).to.equal('correct!');
+
+   makeAGuess = round.takeTurn('gallbladder');
+
+   expect(makeAGuess).to.equal('correct!');
+
+   makeAGuess = round.takeTurn('Lex');
+
+   expect(makeAGuess).to.equal('incorrect!');
+ });
+
+ it('should be able to store incorrect guesses', () => {
+   const deck = new Deck([card1, card2, card3]);
+   const round = new Round(deck);
+
+   round.takeTurn('Lex');
+
+   expect(round.incorrectGuesses).to.deep.equal([1]);
+ });
+
+ it('should be able to calculate the percentage of correct guesses', () => {
+   const deck = new Deck([card1, card2, card3]);
+   const round = new Round(deck);
+
+   round.takeTurn('sea otter');
+   round.takeTurn('gallbladder');
+   round.takeTurn('Lex');
+
+   expect(round.calculatePercentageCorrect()).to.equal(66);
+ });
 });
