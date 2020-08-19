@@ -8,6 +8,7 @@ class Round {
     this.incorrectGuesses = [];
   }
 
+  returnCurrentCard = () => this.deck.cards[this.turns];
 }
 
 module.exports = Round;
