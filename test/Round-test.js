@@ -33,7 +33,7 @@ describe('Round', function() {
     expect(round).to.be.an.instanceof(Round);
   });
 
-  it('should take in a deck of cards', () => {
+  it('should accept a deck of cards', () => {
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
 

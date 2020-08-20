@@ -16,13 +16,13 @@ describe('Turn', function() {
   });
 
   it('should store an attempted answer to a question', function() {
-    const turn = new Turn('It is your birthday');
-    expect(turn.guess).to.equal('It is your birthday');
+    const turn = new Turn('Im not superstitious, but Im a little stitious');
+    expect(turn.guess).to.equal('Im not superstitious, but Im a little stitious');
   });
 
   it('should be able to store another guess', function() {
-    const turn = new Turn('You could put your cellphone in it');
-    expect(turn.guess).to.equal('You could put your cellphone in it');
+    const turn = new Turn('The worst thing about prison was the dementors.');
+    expect(turn.guess).to.equal('The worst thing about prison was the dementors.');
   });
 
   it('should store a card', function() {

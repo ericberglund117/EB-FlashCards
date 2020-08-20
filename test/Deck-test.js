@@ -80,7 +80,7 @@ describe('Deck', function() {
     expect(amountOfCards).to.equal(3);
   });
 
-  it('should still tell how many cards are in the deck out of the possible amount of cards', () => {
+  it('should still know how many cards are in the deck out of the possible amount of cards', () => {
    const data = prototypeData.prototypeData;
    const deck = new Deck(data);
    const amountOfCards = deck.countCards();
