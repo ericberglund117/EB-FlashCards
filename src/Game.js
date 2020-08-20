@@ -11,8 +11,8 @@ class Game {
   }
 
   start() {
-    const deck = new Deck(cards);
     const cards = this.createCards(prototypeQuestions);
+    const deck = new Deck(cards);
     this.currentRound = new Round(deck);
     this.printMessage(deck, this.currentRound);
     this.printQuestion(this.currentRound);
