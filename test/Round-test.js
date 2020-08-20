@@ -99,10 +99,6 @@ describe('Round', function() {
 
    expect(makeAGuess).to.equal('correct!');
 
-   makeAGuess = round.takeTurn('gallbladder');
-
-   expect(makeAGuess).to.equal('correct!');
-
    makeAGuess = round.takeTurn('Lex');
 
    expect(makeAGuess).to.equal('incorrect!');
