@@ -7,7 +7,7 @@ const Round = require('../src/Round');
 describe('Game', function() {
 
   let game;
-  beforeEach(function(){
+  beforeEach(function() {
     game = new Game();
   });
 
@@ -23,7 +23,7 @@ describe('Game', function() {
     expect(game.currentRound).to.equal(null);
   });
 
-  it('should have a new Round instance after starting the game', () => {
+  it.skip('should have a new Round instance after starting the game', () => {
 
     game.start();
 

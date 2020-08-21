@@ -10,9 +10,9 @@ describe('Turn', function() {
   let turn;
   beforeEach(function() {
     card = new Card(1,
-    'Who is the Worlds Best Boss?',
-    ['Jim', 'Dwight', 'Jan'],
-    'Michael');
+      'Who is the Worlds Best Boss?',
+      ['Jim', 'Dwight', 'Jan'],
+      'Michael');
     turn = new Turn('Im not superstitious, but Im a little stitious');
   });
 
